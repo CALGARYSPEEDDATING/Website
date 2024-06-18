@@ -1,0 +1,23 @@
+name: Deploy to Cloudways
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.CLOUDWAYS_SSH_KEY }}
+
+    - name: Sync files to Cloudways
+      run: |
+        rsync -avz --delete-after ./ [your-ssh-user]@[your-cloudways-server-ip]:/home/[your-app-folder]/public_html/
