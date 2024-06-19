@@ -14,10 +14,12 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.CLOUDWAYS_SSH_KEY }}
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H 46.101.18.136 >> ~/.ssh/known_hosts
 
     - name: Sync files to Cloudways
       run: |
-        rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master_successfulapps/public_html/
+        rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/247307.cloudwaysapps.com/gjnyhcqzqt/public_html/
