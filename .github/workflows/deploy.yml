@@ -20,4 +20,4 @@ jobs:
 
     - name: Sync files to Cloudways
       run: |
-        rsync -avz --delete-after ./ [your-ssh-user]@[your-cloudways-server-ip]:/home/[your-app-folder]/public_html/
+        rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master_successfulapps/public_html/
