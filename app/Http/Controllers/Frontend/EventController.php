@@ -251,10 +251,6 @@ class EventController extends Controller
         // $request->session()->forget('waitlist');
         $event = Event::findOrFail($id);
         $waitList = $request->session()->get('waitlist');
-        // $selected_gender = (int) $request->session()->get('gender');
-        // foreach ($request->user()->profile as $profile) {
-        //     $user_gender = $profile->gender;
-        // }
 
         if ($event) {
             if ($waitList) {
