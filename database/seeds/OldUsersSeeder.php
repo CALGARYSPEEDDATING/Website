@@ -83,7 +83,7 @@ class OldUsersSeeder extends Seeder
                 'email'             => $uemail,
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'active'            => 1,
-                'password'          => Hash::make('DW0$Qu5?i6Di'),
+                'password'          => Hash::make('DW0$Qu5?i6Di@@'),
                 'dob'               => $dob,
                 'phone'             => $contact[$i]['Cell'] ? $contact[$i]['Cell'] : $contact[$i]['home'],
                 'confirmed'         => 1,
