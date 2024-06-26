@@ -155,6 +155,14 @@
                             </div>
                             <label for="honeypot">Honeypot </label>
                             <input id="honeypot" name="honeypot" size="40" type="text" />
+                            <div class="form-group col-sm-12"><span class="label label-danger" style="color:red"><b>
+                            Please be informed that our payment system will undergo scheduled maintenance . 
+                            During this period, payment services will be temporarily unavailable.
+
+                            We apologize for any inconvenience and appreciate your understanding.
+                            if you have any Query please contact with our support (403) 219-3283
+
+                            Email: info@calgaryspeeddating.com</b></span></div>
                             <div class="form-group col-sm-12">
                                 <button type="submit" class="btn btn-theme btn-block">Proceed</button>
                             </div>
@@ -216,6 +224,14 @@
                             </div>
                         </div>
                         <input type="hidden" name="use_credit" value=""/>
+                        <div class="form-group col-sm-12"><span class="label label-danger" style="color:red"><b>
+                        Please be informed that our payment system will undergo scheduled maintenance . 
+                        During this period, payment services will be temporarily unavailable.
+
+                        We apologize for any inconvenience and appreciate your understanding.
+                        if you have any Query please contact with our support (403) 219-3283
+
+                        Email: info@calgaryspeeddating.com</b></span></div>
                         <div class="form-group col-sm-12">
                             <button type="submit" class="btn btn-theme btn-block">Proceed</button>
                         </div>
