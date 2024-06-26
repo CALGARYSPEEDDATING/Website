@@ -20,6 +20,11 @@ class ContactController extends Controller
         return view('frontend.website.contact');
     }
 
+    public function old()
+    {
+        return view('frontend.website.contact');
+    }
+
     /**
      * @param SendContactRequest $request
      *
