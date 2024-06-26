@@ -28,19 +28,6 @@ class EventController extends Controller
     const MALE = 0;
     const FEMALE = 1;
 
-
-    // public function index()
-    // {
-    //     // $events = Event::take(5)->notExpired()->approved()->orderBy('created_at', 'DESC')->get();
-    //     $events = Event::take(5)->notExpired()->approved()->upcoming()->paginate(5);
-    //     return view('frontend.website.events.index', compact('events'));
-    //     //->upcoming()
-    // }
-
-    public function old_index(Request $request)
-    {
-        return redirect()->route('frontend.events.index');
-    }
     public function index(Request $request)
     {
         // $events = Event::take(5)->notExpired()->approved()->orderBy('created_at', 'DESC')->get();
@@ -264,10 +251,6 @@ class EventController extends Controller
         // $request->session()->forget('waitlist');
         $event = Event::findOrFail($id);
         $waitList = $request->session()->get('waitlist');
-        // $selected_gender = (int) $request->session()->get('gender');
-        // foreach ($request->user()->profile as $profile) {
-        //     $user_gender = $profile->gender;
-        // }
 
         if ($event) {
             if ($waitList) {

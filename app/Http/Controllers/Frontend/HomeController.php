@@ -26,6 +26,11 @@ class HomeController extends Controller
         return view('frontend.index', compact('events'));
     }
 
+    public function test()
+    {
+        echo "imhere";
+    }
+
     public function loadHomeEvents(Request $request)
     {
         // return response()->json($request->all());
