@@ -28,6 +28,7 @@ Route::get('testemail', [SearchController::class, 'testEmail'])->name('test');
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/{slug}', [DynamicPagesController::class, 'show'])->name('show');
 Route::get('home/events/load', [HomeController::class, 'loadHomeEvents'])->name('home.events.load');
+Route::get('home/developer', [HomeController::class, 'test'])->name('home.events.test');
 
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('speed-dating-calgary/contact/send', [ContactController::class, 'send'])->name('contact.send');
