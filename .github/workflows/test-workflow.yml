@@ -1,0 +1,38 @@
+name: Deploy to Cloudways
+
+on:
+  push:
+    branches:
+      - talha-test-branch
+      # - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # - name: Set up SSH
+    #   run: |
+    #     mkdir -p ~/.ssh
+    #     echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
+    #     chmod 600 ~/.ssh/id_rsa
+    #     ssh-keyscan -H 46.101.18.136 >> ~/.ssh/known_hosts
+
+    - name: Sync files to test branch
+      if: github.ref == 'refs/heads/talha-test-branch'
+      run: |
+        echo "this is talha-test-branch
+        # rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master/talha_test_dir
+
+    # - name: Sync files to staging (for staging branch)
+    #   if: github.ref == 'refs/heads/staging'
+    #   run: |
+    #     rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master/applications/cefqxhbhaj/public_html/
+
+    # - name: Sync files to live (for master branch)
+    #   if: github.ref == 'refs/heads/master'
+    #   run: |
+    #     rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master/applications/gjnyhcqzqt/public_html/
