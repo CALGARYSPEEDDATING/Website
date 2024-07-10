@@ -1,4 +1,4 @@
-name: Deploy to Cloudways
+name: Test
 
 on:
   push:
