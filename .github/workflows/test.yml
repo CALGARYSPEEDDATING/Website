@@ -16,7 +16,7 @@ jobs:
     - name: Set up SSH
       run: |
         mkdir -p ~/.ssh
-        echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_rsa
+        echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCp91y9lwF7DiKzI8f4pePsw0KOxkgHEQUB4b3AmaxoiGcd7XJSky3hStPhCsNiF7QBGGH3BfROsq/Ktiw9o05MDXUx4ukuGauBaOemZpov62qiCxGWH/A+c8GFAApKAnRf8FI5EuPHi+Cu0VAhEIS7gBBckys6RHI+TO6+U/AuVvp/YtnFleZqXRGSi2Pg7docyzdvaAYQF0RqljJKQXU+89CenXz/4k2M36t3WISZFLkcto8KAVSPXwhatLqHpYZ3HPFLSmkm9Zl462f5qUv7N7sccY+07E2ng/4Kv8AlA+wtEdj0TU+md+S2B0ckxTpqmH/MeSJd1GGi0aGu+LrySdyj1xN8jaNrR5X/dDcEjlbdEW4gREwlfGOQNO/RXgiTNlWIG2jh5pQZ0oz/IhsqKu+TYPop/Cc4jiyQ2hVt1br7CU/bP9JfgBaCs/cHNtxzZNrD2U5YUiVihuV2AQPCT4NhOJsrtKF0LDIo11gIsKCT4acDTl5ztCT4LdfNaVy7OSCw03S3ya898szqSgBnjlIghZ3j9W0q4e/OfrunDyhzNrsxpDTTgmEXtIkHNQ9d+nKP+7b4mk4GL2ti1puyQPCBmGhouidYAS5Y/QtYsrZ84b75mXgpkrePpEeG7VC9T5O1Ni8UzX955aOj6yiEEIbBW9qi+R7e8Rn/sdvc4Q== talha-rashid-key-pair" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H 165.232.100.44 >> ~/.ssh/known_hosts
         # ssh-keyscan -H 46.101.18.136 >> ~/.ssh/known_hosts
