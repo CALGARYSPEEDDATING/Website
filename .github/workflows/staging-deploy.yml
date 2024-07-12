@@ -1,0 +1,80 @@
+name: Staging Workflow
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo '-----BEGIN OPENSSH PRIVATE KEY-----
+        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
+        -----END OPENSSH PRIVATE KEY-----' > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H 165.232.100.44 >> ~/.ssh/known_hosts
+        # ssh-keyscan -H 46.101.18.136 >> ~/.ssh/known_hosts
+
+    - name: Validate SSH connection
+      run: |
+        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no master_mhdgpqenem@165.232.100.44 "echo 'SSH Connection Successful'"
+
+    - name: Sync files to staging (for test-workflow-branch branch)
+      if: github.ref == 'refs/heads/staging'
+      run: |
+        rsync -avz --delete-after ./ master_mhdgpqenem@165.232.100.44:/home/master/applications/cefqxhbhaj/public_html/
+        # rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master/applications/cefqxhbhaj/public_html/
