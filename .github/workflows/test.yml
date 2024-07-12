@@ -16,7 +16,7 @@ jobs:
     - name: Set up SSH
       run: |
         mkdir -p ~/.ssh
-        echo "-----BEGIN OPENSSH PRIVATE KEY-----
+        echo '-----BEGIN OPENSSH PRIVATE KEY-----
         b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAACFwAAAAdzc2gtcn
         NhAAAAAwEAAQAAAgEAqfdcvZcBew4isyPH+KXj7MNCjsZIBxEFAeG9wJmsaIhnHe1yUpMt
         4UrT4QrDYhe0ARhh9wX0TrKvyrYsPaNOTA11MeLpLhmrgWjnpmaaL+tqogsRlh/wPnPBhQ
@@ -64,14 +64,17 @@ jobs:
         KVUAUZ2iDl4pysJN8qGfWax1Dyw+y1tBAvAucHvK1iurQrCrClZPZC3ZC1OvyH8x1tUtps
         5Kc4U7ykSwmNIqnh4KeYH+PxWpQ4NzLP1m0eTseOsF+PN+3DjGqEX0pFQQEXy29oqQRAfO
         oLf0D4vBgDVVAAAAFXRhbGhhLXJhc2hpZC1rZXktcGFpcgECAwQF
-        -----END OPENSSH PRIVATE KEY-----" > ~/.ssh/id_rsa
+        -----END OPENSSH PRIVATE KEY-----' > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H 165.232.100.44 >> ~/.ssh/known_hosts
         # ssh-keyscan -H 46.101.18.136 >> ~/.ssh/known_hosts
-        
 
-    - name: Sync files to staging (for test-workflow-branch branch)
-      if: github.ref == 'refs/heads/test-workflow-branch'
+    - name: Validate SSH connection
       run: |
-        rsync -avz --delete-after ./ master_mhdgpqenem@165.232.100.44:/home/master/talha_test_dir/staging_dir
-        # rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master/applications/cefqxhbhaj/public_html/
+        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no master_mhdgpqenem@165.232.100.44 "echo 'SSH Connection Successful'"
+
+    # - name: Sync files to staging (for test-workflow-branch branch)
+    #   if: github.ref == 'refs/heads/test-workflow-branch'
+    #   run: |
+    #     rsync -avz --delete-after ./ master_mhdgpqenem@165.232.100.44:/home/master/talha_test_dir/staging_dir
+    #     # rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master/applications/cefqxhbhaj/public_html/
