@@ -1,9 +1,9 @@
-name: Test Staging Workflow
+name: Staging Workflow
 
 on:
   push:
     branches:
-      - test-workflow-branch
+      - staging
 
 jobs:
   deploy:
@@ -74,7 +74,7 @@ jobs:
         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no master_mhdgpqenem@165.232.100.44 "echo 'SSH Connection Successful'"
 
     - name: Sync files to staging (for test-workflow-branch branch)
-      if: github.ref == 'refs/heads/test-workflow-branch'
+      if: github.ref == 'refs/heads/staging'
       run: |
-        rsync -avz --delete-after ./ master_mhdgpqenem@165.232.100.44:/home/master/talha_test_dir/staging_dir
+        rsync -avz --delete-after ./ master_mhdgpqenem@165.232.100.44:/home/master/applications/cefqxhbhaj/public_html/
         # rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master/applications/cefqxhbhaj/public_html/
