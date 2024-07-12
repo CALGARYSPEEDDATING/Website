@@ -16,7 +16,55 @@ jobs:
     - name: Set up SSH
       run: |
         mkdir -p ~/.ssh
-        echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCp91y9lwF7DiKzI8f4pePsw0KOxkgHEQUB4b3AmaxoiGcd7XJSky3hStPhCsNiF7QBGGH3BfROsq/Ktiw9o05MDXUx4ukuGauBaOemZpov62qiCxGWH/A+c8GFAApKAnRf8FI5EuPHi+Cu0VAhEIS7gBBckys6RHI+TO6+U/AuVvp/YtnFleZqXRGSi2Pg7docyzdvaAYQF0RqljJKQXU+89CenXz/4k2M36t3WISZFLkcto8KAVSPXwhatLqHpYZ3HPFLSmkm9Zl462f5qUv7N7sccY+07E2ng/4Kv8AlA+wtEdj0TU+md+S2B0ckxTpqmH/MeSJd1GGi0aGu+LrySdyj1xN8jaNrR5X/dDcEjlbdEW4gREwlfGOQNO/RXgiTNlWIG2jh5pQZ0oz/IhsqKu+TYPop/Cc4jiyQ2hVt1br7CU/bP9JfgBaCs/cHNtxzZNrD2U5YUiVihuV2AQPCT4NhOJsrtKF0LDIo11gIsKCT4acDTl5ztCT4LdfNaVy7OSCw03S3ya898szqSgBnjlIghZ3j9W0q4e/OfrunDyhzNrsxpDTTgmEXtIkHNQ9d+nKP+7b4mk4GL2ti1puyQPCBmGhouidYAS5Y/QtYsrZ84b75mXgpkrePpEeG7VC9T5O1Ni8UzX955aOj6yiEEIbBW9qi+R7e8Rn/sdvc4Q== talha-rashid-key-pair" > ~/.ssh/id_rsa
+        echo "-----BEGIN OPENSSH PRIVATE KEY-----
+        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
+        -----END OPENSSH PRIVATE KEY-----" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H 165.232.100.44 >> ~/.ssh/known_hosts
         # ssh-keyscan -H 46.101.18.136 >> ~/.ssh/known_hosts
