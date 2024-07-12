@@ -25,5 +25,5 @@ jobs:
     - name: Sync files to staging (for test-workflow-branch branch)
       if: github.ref == 'refs/heads/test-workflow-branch'
       run: |
-        rsync -avz --delete-after ./ master_successfulapps@165.232.100.44:/home/master/talha_test_dir/staging_dir
+        rsync -avz --delete-after ./ master_mhdgpqenem@165.232.100.44:/home/master/talha_test_dir/staging_dir
         # rsync -avz --delete-after ./ master_successfulapps@46.101.18.136:/home/master/applications/cefqxhbhaj/public_html/
